@@ -19,15 +19,15 @@
 
 				<!-- Header -->
 					<header id="header">
-                        <a href="#Title_link" class="logo">Projects..</a>
+                        <a href="#Title_link" class="logo">Projects</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="index.html">Projects Main.</a></li>
-							<li><a href="about.html">About Me.</a></li>
-							<li class="active"><a href="hawk-data.html">Bird Census Project.</a></li>
+							<li><a href="index.html">Projects Main</a></li>
+							<li><a href="about.html">About Me</a></li>
+							<li class="active"><a href="hawk-data.html">Bird Census Project</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -43,21 +43,21 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-                                    <a id="Title_link">
-									<h1>Bird Census Project...
+                                   
+									<h1>Bird Census Project
 									</h1>
                                     <header class="major">
-                                        <span class="date">Hawk Populations ...</span>
+                                        <span class="date">Hawk Populations</span>
                                     </header>
-                                    <a href="#" class="image main"><img src="images/Hawk.jpg" alt="Red Shouldered Hawk Free image." /></a>
-                                    </a>
+                                   <img src="images/Hawk.jpg" class="image main" alt="Red Shouldered Hawk Free image.">
 								</header>
 
 								<!-- Text stuff -->
                                 
-                                <h2>Hawks have always been interesting to me so I began by looking through <strong><a href="ftp://ftpext.usgs.gov/pub/er/md/laurel/BBS/DataFiles/">North American Breeding Bird Survey cenus data.</a></strong> I live in the tri-state area of Kentucky, Indiana, and Ohio so I focused on the 342,141 rows of bird data for those states.</h2>
+                                <h2><a id="hawk">Hawks</a> are interesting to me so I looked at census data from the <a href="https://www.pwrc.usgs.gov/bbs/">North American Breeding Bird Survey.</a> I live in the tri-state area of Kentucky, Indiana, and Ohio so I focused on the 342,141 rows of bird data for those states.</h2>
+                             
                                 <hr/>
-                                <h2>Links to follow along..</h2>
+                                <h2>Links to follow along:</h2>
                                 
                                 <ol>
                                     <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-1-Data-Wrangling-and-Storytelling/blob/master/U1_Build_Week_Final_Kentucky_hawks.ipynb">My Code for Kentucky Hawks.</a></li>
@@ -70,49 +70,53 @@
                                 <hr/>
                                 
                                 <p>
-                                I started with Kentucky and first had to select the three hawk species I wanted to look at.  I chose the 3 most common: The Cooper's Hawk, The Red-Shouldered Hawk, and The Red-Tail Hawk.  Each had an identifying number that I selected for and made a dataframe for each.  I then sorted each hawk's dataframe by year from the beginnning of the survey in 1966 to the final year in 2018.  This would be important to loop through the multiple rows for each year.  Once the loop was done instead of multiple rows for each year I would have only one row per year for each hawk.  I then compared the counts of the 3 hawk species per year.
+                                I started with Kentucky and first had to select the three hawk species I wanted to look at.  I chose the 3 most common: The Cooper's Hawk, The Red-Shouldered Hawk, and The Red-Tail Hawk.  Each had an identifying number that I selected for and made a dataframe for each.  I then sorted each hawk's dataframe by year from the beginnning of the survey in 1966 to the final year in 2018.  This would be important to loop through the multiple rows for each year.  Once the loop was done instead of multiple rows for each year I had only one row per year for each hawk.  I then compared the counts per year of each species of hawk.
                                 </p>
                                 
                                 <hr/>
-                                <h2>Kentucky Hawks..</h2>
-                                <a href="#" class="image main"><img src="images/Kentucky_Hawks.png" alt="Graph of Kentucky Hawk Populations."/></a>
+                                <h2>Kentucky Hawks</h2>
+                                <img src="images/Kentucky_Hawks.png" class = "image main" alt="Graph of Kentucky Hawk Populations.">
                                 <hr/>
-                                
-                                <h3>The Kentucky Graph Shows..</h3>
-                                
+                                    <h2>The Kentucky Graph Shows:</h2>
+                            
                                 <ol>
-                                    <li>The Red Tailed Hawk (Orange) has been the most common in Kentucky.</li>
-                                    <li>The Red Shouldered Hawk (Green) in population has really improved essentially matching the Red Tail.</li>
+                                    <li>The Red Tailed Hawk (Orange squares) has been the most common in Kentucky.</li>
+                                    <li>The Red Shouldered Hawk (Green triangles) in population has really improved essentially matching the Red Tail.</li>
                                     <li>These correlate with dips and bounces in their counts.  For instance, a bad breeding year for the Red Tail was also correlated with a bad breeding year for the Red Shoulder.  This is clearly seen as the Green starts matching the Orange in up and down trends.</li>
-                                    <li>The Cooper's Hawk (Blue) never put up numbers like the other two.</li>
-                                    <li>This graph and the low numbers in the early years make me wonder how reliable the bird data was collected or why there are more hawks counted closer to the present.  Are these hawks really able to increase their numbers that much?  Maybe they are just becoming better adapted to thrive in suburb type environments alongside of people.
+                                    <li>The Cooper's Hawk (Blue dashes) never put up numbers like the other two.</li>
+                                    <li>The low numbers in the early years make me wonder how reliably the bird data was collected or why there are more hawks counted closer to the present.  Are these hawks really able to increase their numbers that much?  Maybe they are just becoming better adapted to thrive in suburb type environments alongside of people.
                                         </ol>
                                 <hr/>
-                                <h2>Kentucky, Indiana, &amp; Ohio Hawks..</h2>
-                                <a href="#" class="image main"><img src="images/Tri_State_Hawks.png" alt="Graph of Kentucky Hawk Populations."/></a>
+                                <h2>Kentucky, Indiana, &amp; Ohio Hawks</h2>
+                                <img src="images/Tri_State_Hawks.png" class="image main" alt="Graph of Kentucky Hawk Populations.">
                                 <hr/>
                                 
-                                <h3>The Three States Graphed Together Shows..</h3>
+                                <h2>The Three States Graphed Together Shows:</h2>
+                                
                                 <ol>
-                                    <li>The Red Tailed Hawk is still the most common even when compared to all the other hawks combined.</li>
+                                    <li>The Red Tailed Hawk (Orange) is still the most common even when compared to all the other hawks combined (Blue).</li>
                                     <li>The Red Shouldered Hawk is still the second most common with a total of 1,613 counts over the 52 year study.</li>
-                                    <li>There is still a correlation with dips and bounces in yearly counts.  For instance, all hawks had good breeding years in 1993, 2001, 2012, and 2018.</li>
+                                    <li>There is still a high correlation with dips and bounces in yearly counts.  For instance, all hawks had good breeding years in 1993, 2001, 2012, and 2018.</li>
                                     <li>Yearly trends seem to indicate the populations are doing well.</li>
-                                    <li>This graph also shows that all the other hawks are gaining on the Red Tail whereas they seemed to possibly have plateaued.  As with the Kentucky graph the Red Shouldered and the other hawks could as a whole be challenging the Red Tail for territory.</li>
-                                    <li>The data in all three states combined is where I'd expect it to be in triple digits vs in Kentucky only which is in single digits.</li>
+                                    <li>This graph also shows that all other hawks are gaining on the Red Tail whereas they seem to possibly have plateaued.  As with the Kentucky graph the Red Shouldered included here with the other hawks could as a whole be challenging the Red Tail for territory.</li>
+                                    <li>The data in all three states together gives a more comprehensive look at each year's recorded hawk counts.  With 3x more data it is still appropriately matched and verifies Kentucky's census.  In other words Kentucky was a good predictor of a larger sample.</li>
+                                   
                                 </ol>
                                 <hr/>
-                                <h3>Take-aways..</h3>
+                                <h2>Take-aways:</h2>
                                 <ol>
-                                    <li>My favorite graph was the line graph and felt the lines really showed the good breeding years for the Red Tail and Red Shouldered.</li>
+                                    <li>My favorite graph was the line graph and I felt the lines really showed the good breeding years for the Red Tail and Red Shouldered.</li>
                                     <li>The line graph's shapes (squares, triangles, and dashes) really helped seperate the hawks for a better understanding.</li>
-                                    <li>The bars in the Tri-State Graph really showed the correlations of each year clearly i.e. it was more specific for each year.  The line graph was better to see the dips and bounces.</li>
-                                    <li>Both Graphs gave a different perspective on the same data.  Dare I say a bird's eye view ;)</li>
+                                    <li>The bars in the Tri-State Graph really showed the correlations of each year clearly i.e. it was more suited to see individual year counts.  The line graph was better to see the generalized dips and bounces overall.</li>
+                                    <li>Both graphs gave a different perspective on the same data and both as important.  Dare I say a bird's eye view ;)</li>
                                     <li>Given more time I would like to graph all 5 most common hawks with a line &amp; shape graph.</li>
-                                    <li>I would also like to further research how and where the data was collected.</li>
+                                    <li>I would also like to further research how and where the data was collected.  I read how it was collected but were the locations rural or suburban?</li>
                                     <li>How would these findings help researchers of hawk conservation?</li>
+                                     <li>Shown in percentages: 67% Red Tail, 17% Red Shoulder, 10% Cooper's, 4% Broad Wing, and 1% Sharp Shinned.  However, this could be done better by finding the percentages in the last 5 years for present conservation efforts.</li>
                                 </ol>
-                                
+                                <hr/>
+                                <h2>Conclusion</h2>
+                                <p>There is a lot of other data in this data set: wind and weather patterns, route numbers coresponding to locations, other birds, and other columns of data that I could spend weeks analyzing.  I really enjoyed the small subset of data that I did analyze.  Now when I see a hawk in my neighborhood I'll have a better idea of what the numbers say about each species.</p>
                                 <hr/>
                                 </div>
                                 </div>

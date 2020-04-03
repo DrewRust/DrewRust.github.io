@@ -49,7 +49,7 @@
                                     <header class="major">
                                         <span class="date">Hawk Populations</span>
                                     </header>
-                                   <img src="images/Hawk.jpg" class="image main" alt="Red Shouldered Hawk Free image.">
+                                   <a href="https://stocksnap.io/author/srahn" class="image main"><img src ="images/Hawk.jpg" alt="Red Shouldered Hawk Free image."/> </a>
 								</header>
 
 								<!-- Text stuff -->
@@ -118,6 +118,37 @@
                                 <h2>Conclusion</h2>
                                 <p>There is a lot of other data in this data set: wind and weather patterns, route numbers coresponding to locations, other birds, and other columns of data that I could spend weeks analyzing.  I really enjoyed the small subset of data that I did analyze.  Now when I see a hawk in my neighborhood I'll be able to better guess that it's most likely a Red Tail or Red Shouldered Hawk.  The other hawks represent a much smaller statistical likelihood.  In the future I plan to revisit this project but I had a lot of fun scratching the surface.</p>
                                 <hr/>
+                                
+                                
+                                
+                                
+                                <h2>Afterword</h2>
+                                <p>I continued to look at the route locations and decided to give GeoPandas a try for the state of Kentucky's most recent 5 year route counts.</p>
+                                <hr/>
+                                <h2>Kentucky 2014 - 2018 Hawk Counts By Location</h2>
+                                  <img src="images/Route_Counts2.png" class="image main" alt="Graph of Numbered Kentucky Hawk Route Counts by Location.">
+                                         <hr/>
+                                <h2>Route Location Names and ColorMap for Counts</h2>
+                                  <img src="images/Kentucky_Route_Counts2.png" class="image main" alt="Color Graph of Kentucky Hawk Route Counts by Location.">
+                                    <hr/>
+                                    
+                                    <h2>The Route Counts By Location Shows:</h2>
+                                    
+                                    <ol>
+                                        <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-5-Data-Storytelling-Blog-Post/blob/master/Kentucky_Hawk_Counts_by_location_in_past_5_years.ipynb">My Code For The GeoPandas Map.</a></li>
+                                        <li>The hawk counts trended higher in the southwestern part of Kentucky.  Six out of the eight counts greater than 20 were in the southwestern part of the state.</li>
+                                        <li>The routes "East Union" and "Cumberland GP" in the north and southeastern parts of the state were outliers.  They had census counts of 28 hawks and 25 hawks over 5 years.</li>
+                                        <li>Thirteen out of the sixteen counts less than ten were on the eastern side of the state</li>
+                                        <li>The route with the highest count was "Shilo" at 34 hawks and the route with the lowest count was "Mammoth Cave" at 1 hawk.</li>
+                                        <li>When two routes latitude and longitude are very close together such as "Mammoth Cave" and "Demunbruns" they can be hard to read because of name overlap.</li>
+                                        <li>The routes "River Queen" and "Million 2" were so close I couldn't tell them apart so I combined their totals into one route location.</li>
+                                        <li>GeoPandas is nice but for a larger dataset I will have to look into figuring out Plotly and Mapbox.</li>
+                                        
+                                    </ol>
+                                    <hr/>
+                                
+                                
+                                
                                 </div>
                                 </div>
             

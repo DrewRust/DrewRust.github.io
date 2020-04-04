@@ -122,7 +122,7 @@
                                 
                                 
                                 
-                                <h2>Afterword</h2>
+                                <h2>Revisited With GeoPandas</h2>
                                 <p>I continued to look at the route locations and decided to give GeoPandas a try for the state of Kentucky's most recent 5 year route counts.</p>
                                 <hr/>
                                 <h2>Kentucky 2014 - 2018 Hawk Counts By Location</h2>
@@ -136,7 +136,7 @@
                                     
                                     <ol>
                                         <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-5-Data-Storytelling-Blog-Post/blob/master/Kentucky_Hawk_Counts_by_location_in_past_5_years.ipynb">My Code For The GeoPandas Map.</a></li>
-                                        <li>The hawk counts trended higher in the southwestern part of Kentucky.  Six out of the eight counts greater than 20 were in the southwestern part of the state.  Is there possibly a more reliable food source there?  Is that terrain more suited to their liking?</li>
+                                        <li>The hawk counts trended higher in the southwestern part of Kentucky.  Six out of the eight counts greater than 20 were in the southwestern part of the state.  Is there possibly a more reliable food source there?  Is that terrain more suited to them thriving?</li>
                                         <li>The routes "East Union" and "Cumberland GP" in the north and southeastern parts of the state were outliers.  They had census counts of 28 hawks and 25 hawks over 5 years.</li>
                                         <li>Thirteen out of the sixteen route counts less than ten were on the eastern part of the state.  Why are there fewer route locations on the far eastern side of the state?  Then other areas are clustered with routes such as around "East Union."</li>
                                         <li>The route with the highest count was "Shiloh" at 34 hawks and the route with the lowest count was "Mammoth Cave" at 1 hawk.</li>
@@ -146,9 +146,23 @@
                                         
                                     </ol>
                                     <hr/>
+                                    <h2>Revisited With Plotly</h2>
+                                    <p>I regraphed the above latitude and longitude Kentucky route census hawk totals with Plotly.</p>
+                                    <hr/>
+                                    <h2>Plotly Graph of Route Counts Revisited</h2>
+                                    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~drewrust1/1.embed" height="525" width="100%"></iframe>
+                                        <hr/>
                                 
-                                
-                                
+                                <ol>
+                                    <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-5-Data-Storytelling-Blog-Post/blob/master/Plotly.ipynb">My Code For The Plotly Map.</a></li>
+                                    <li>Now when zooming in you can really get a layout of the census route's terrain.  How many trees or how much open space or how populated is it are questions that can be answered.</li>
+                                    <li>The Routes "River Queen" and "Millions 2" are so close they were indistinguishable on the GeoPandas graph.  They can now be zoomed in here to see they are indeed seperate just very incredibly close.</li>
+                                    <li>The interactivity of this kind of graph is great as long as it's not over done.</li>
+                                    <li>There are still some quirks about graphing with Plotly that I have yet to learn but it truly is awesome.</li>
+                                   
+                                <hr/>
+                                    
+                                </ol>
                                 </div>
                                 </div>
             

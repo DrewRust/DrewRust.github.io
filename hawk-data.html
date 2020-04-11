@@ -143,23 +143,28 @@
                                         
                                     </ol>
                                     <hr/>
-                                    <h2>Revisited With Plotly</h2>
+                                    <h2>Revisited With Plotly &amp; Mapbox</h2>
                                     <p>I regraphed the above census route locations for hawks in Kentucky using Plotly and Mapbox.</p>
                                     <hr/>
-                                    <h2>Plotly Graph of Route Counts</h2>
+                                    <h2>Plotly &amp; Mapbox Graph of Route Counts</h2>
                                     <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~drewrust1/1.embed" height="525" width="100%"></iframe>
                                         <hr/>
-                                
+                                        <h2>The Plotly &amp; Mapbox Graph Shows:</h2>
                                 <ol>
-                                    <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-5-Data-Storytelling-Blog-Post/blob/master/Plotly.ipynb">My Code For The Plotly Map.</a></li>
+                                    <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-5-Data-Storytelling-Blog-Post/blob/master/Plotly.ipynb">My Code For The Plotly and Mapbox Graph.</a></li>
                                     <li>Now when zooming in you can really get a layout of the census route's terrain.  How many trees or how much open space or how populated is it are questions that can be answered.</li>
                                     <li>The Routes "River Queen" and "Millions 2" are so close they were indistinguishable on the GeoPandas graph.  They can now be zoomed in here to see they are indeed seperate just very close.</li>
-                                    <li>The interactivity of this kind of graph is great as long as it's not over done.</li>
-                                    <li>There are still some quirks about graphing with Plotly that I have yet to learn but it truly is awesome.</li>
+                                    <li>The interactivity of this kind of graph is great as long as the data isn't overproduced.</li>
+                                    <li>There's a lot to learn about graphing with Plotly and Mapbox, but they're truly awesome formats for displaying data.</li>
                                    
                                 <hr/>
                                     
                                 </ol>
+                                
+                                
+                                <h2>Conclusion</h2>
+                                <p>After plotting route location counts in Kentucky I thought why not for the whole US.  However, there is a dataframe for each state and it's route counts for each hawk's correspond to a specific state route code.  These state route codes then have to be filtered through the master route dataframe.  The route dataframe has 5,745 route latitude and longitude points and the specific name of the route.  This would have to be done for each state and then each state's frame added to all the other states.  A solution for the next project could be to create a universal route code column which would make things easier to graph for the whole US.  So as it stands, I'm happy calling my portion of this project complete.  In conclusion, I'm humbled by how much data is here and was enamored with the data of Kentucky that I focused on.  My hats off to the North American Breeding Bird census volunteers and conservationists.</p>
+                                <hr/>
                                 </div>
                                 </div>
             

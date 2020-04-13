@@ -139,7 +139,7 @@
                                         <li>The route with the highest count was "Shiloh" at 34 hawks and the route with the lowest count was "Mammoth Cave" at 1 hawk.</li>
                                         <li>When two routes' latitudes and longitudes are very close together such as "Mammoth Cave" and "Demunbruns" they can be hard to read because of name overlap.</li>
                                         <li>The routes "River Queen" and "Million 2" were so close I couldn't tell them apart so I combined their totals into one route location.</li>
-                                        <li>GeoPandas is great but for a larger dataset Plotly and Mapbox might be better suited.  Zooming into specific areas for those larger maps would be an advantage.  For instance, if a couple routes were very close together you could zoom in to see them better.</li>
+                                        <li>GeoPandas is great but for a larger dataset Plotly and Mapbox might be better suited.  Zooming into specific areas for those larger maps would be an advantage.  For instance, if a couple routes were very close together you could zoom in to see them and the terrain better.</li>
                                         
                                     </ol>
                                     <hr/>
@@ -154,7 +154,7 @@
                                     <li><a href="https://github.com/DrewRust/DS-Unit-1-Sprint-5-Data-Storytelling-Blog-Post/blob/master/Plotly.ipynb">My Code For The Plotly and Mapbox Graph.</a></li>
                                     <li>Now when zooming in you can really get a layout of the census route's terrain.  How many trees or how much open space or how populated is it are questions that can be answered.</li>
                                     <li>The Routes "River Queen" and "Millions 2" are so close they were indistinguishable on the GeoPandas graph.  They can now be zoomed in here to see they are indeed seperate just very close.</li>
-                                    <li>The interactivity of this kind of graph is great as long as the data isn't overproduced.</li>
+                                    <li>Interacting with this kind of graph allows the locations to come alive more.</li>
                                     <li>There's a lot to learn about graphing with Plotly and Mapbox, but they're truly awesome formats for displaying data.</li>
                                    
                                 <hr/>
@@ -163,7 +163,7 @@
                                 
                                 
                                 <h2>Conclusion</h2>
-                                <p>After plotting route location counts in Kentucky I thought why not for the whole US.  However, there is a dataframe for each state and it's route counts for each hawk's correspond to a specific state route code.  These state route codes then have to be filtered through the master route dataframe.  The route dataframe has 5,745 route latitude and longitude points and the specific name of the route.  This would have to be done for each state and then each state's frame added to all the other states.  A solution for the next project could be to create a universal route code column which would make things easier to graph for the whole US.  So as it stands, I'm happy calling my portion of this project complete.  In conclusion, I'm humbled by how much data is here and was enamored with the data of Kentucky that I focused on.  My hats off to the North American Breeding Bird census volunteers and conservationists.</p>
+                                <p>After plotting yearly counts for Kentucky's 3 most common hawks, the Tri-State's yearly counts, and finally Kentucky's recent 5 year route counts I'm ready to call this look at the BBS census data complete.  For a seperate future project I definitely want to continue looking at the data.  I would like to plot route counts for the whole US or choose a different bird species.  To make it easier I will definitely have to write some functions to better sort through each state's dataframe and compare it to the route location dataframe.  For now as it stands, I'm happy calling this portion of the Breeding Bird Survey complete.  In conclusion, I'm humbled by how much data is here and was enamored with the data of Kentucky that I focused on.  My hats off to the North American Breeding Bird census volunteers and conservationists.</p>
                                 <hr/>
                                 </div>
                                 </div>

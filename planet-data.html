@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Exoplanets and Data Modeling</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+        
+        span.lowercase {
+            text-transform: lowercase;
+        }
+        img.contain {
+            object-fit: contain;
+        }
+        
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+                        <a href="index.html" class="logo">Projects</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects Main</a></li>
+							<li><a href="about.html">About Me</a></li>
+							<li class="active"><a href="planet-data.html">Exoplanets Project</a></li>
+						</ul>
+						<ul class="icons">
+                            <li><a href="https://www.linkedin.com/in/andrew-rust-1761599a/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        <!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
+                        <!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+                        <!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
+							<li><a href="https://github.com/DrewRust" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+                                   
+									<h1>NASA Exoplanets</h1>
+                                    <header class="major">
+                                        <span class="date">Data Modeling</span>
+                                    </header>
+                                   <a href="https://commons.wikimedia.org/wiki/File:NASA-KeplerSpaceTelescope-ArtistConcept-20141027.jpg#/media/File:NASA-KeplerSpaceTelescope-ArtistConcept-20141027.jpg" class="image main"><img src ="images2/NASAKeplerSpaceTelescope.jpg" alt="FindImage."/> </a>
+								</header>
+
+								<!-- Text stuff -->
+                                <h3>Exoplanets are planets outside our solar system. Above is an artist's rendering of NASA's Kepler Space Telescope searching for such exoplanets.<a href="https://solarsystem.nasa.gov/solar-system/beyond/overview/">NASA documents 4,164 and counting "Confirmed" exoplanets</a> discovered so far and thousands of other "Candidate" planets.  Below is the process I used to create a data model to predict the confirmed planets.</h3>
+                                <hr/>
+                                
+                                
+                                <p>
+                                As of the time of writing this there are 4,164 "confirmed" exoplanets and the other "candidate" planets require more study to be confirmed.  The discovery method most often successful is the transit method as the exoplanet passes in between it's star and the telescope.  The dimming of the light from that star can then be measured and the orbit studied.</p>
+                                
+                                <p>
+                                The dataset that I chose to look at is the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release (link) </a> which is essentially all the planetary datasets combined.  The data is 26,336 rows and 118 columns.  I looked at all the columns and some had too many missing values, others were not helpful to predicting if it was a confirmed planet, or the column variable was hard to understand.  I'm no astronomer but I felt like I could get a model to predict whether a planet was confirmed or just a candidate.</p>
+                                <hr/>
+                                
+                                
+                                <h2>Links to follow along:</h2>
+                                        <ol>
+                                    <li><a href="https://exoplanets.nasa.gov/exoplanet-catalog/">Exoplanet Catelog.</a></li>
+                                    <li><a href="https://exoplanetarchive.ipac.caltech.edu/index.html">Planetary Systems Data being used.</a></li>
+                                    <li><a href="https://colab.research.google.com/drive/1NZ1I2sXOvmqm2zpETU3psVQWup-ah76S?usp=sharing">Google Colaboratory Notebook of code for my predictive models.</a></li>
+                                    <li><a href="https://colab.research.google.com/drive/1_2SC3zSGWn0LPwKYCXeLUTqFncqAQPo8?usp=sharing">Google Colaboratory Notebook of code for my visual data anaylsis.</a></li>
+                                    <li><a href="https://www.kaggle.com/ezietsman/kepler-dataset-exploratory-analysis">Kepler Data explored on Kaggle by Ewald Zietsman.</a></li>
+                                        </ol>
+                                <hr/>
+                                
+                                
+                                <h3>The first thing was to explore the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html">data columns (link).</a>  Initially I had 118 different column variables so I narrowed it down to 25.  Out of these 22 were numeric data types and 3 were categoricals.  I'm first going to describe the numeric columns of planetary data.</h3>
+                                <hr/>
+                                
+                                
+                                <h2>Numeric Columns</h2>
+                                <hr/>
+                                
+                                
+                                
+                                <h3>Heatmap</h3>
+                                <img src="images2/heatmap.png" class = "image main" alt="imagedescription">
+                                    
+                                    <h3>The heatmap shows any correlations between the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html">columns.</a></h3>
+                            
+                                <ul>
+                                    <li>"dec" and "ra" are the cooridinates of the planets.</li>
+                                    <li>The columns beginning with "sy" refer to the planetary systems.  Notice how they're grouped together and create a pattern.</li>
+                                    <li>The columns begining with "pl" refer to the exoplanets.  "pl_radj" and "pl_rade" refer to the radii or radiuses of the planets measured in units of Jupiters and Earths.  There are definitely some correlations among these.</li>
+                                    <li>The columns begining with "st" refer to the star the exoplanet orbits.  Notice how these create a pattern.</li>
+                                </ul>
+                                <hr/>
+                                
+                                
+                                
+                                <h3><span class="lowercase">"pl_eqt"</span> is the planet's temperature.</h3>
+                                <img src="images2/pl_eqt.png" class = "image main" alt="imagedescription">
+                                    
+                                    <p>This boxplot shows Confirmed planets have on average a warmer temperature.</p>
+                                <hr/>
+                                
+                                
+                                
+                                
+                                <h3><span class="lowercase">"pl_orbper"</span> is orbit time in days and <span class="lowercase">"pl_ratdor"</span> is a ratio of distance.</h3>
+                                <img src="images2/pl_ratdor_orbper.png" class="image main" alt="imagedescription">
+                                    <p>This scatterplot shows Confirmed planets are more closely grouped with shorter orbit times.  Overall, the farther away a planet is the longer time it takes to orbit the star.</p>
+                                <hr/>
+                                
+                                
+                                
+                                
+                                <h3><span class="lowercase">"pl_trandep"</span> is flux caused by transit of the planet and <span class="lowercase">"pl_radj"</span> is the planet radius measured in Jupiter units.</h3>
+                                <img src="images2/pl_trandep_radj.png" class="image main" alt="imagedescription">
+                                    <p>This scatterplot shows Confirmed planets cause more flux by their transit and larger planets cause more flux.</p>
+                                    <hr/>
+                                    
+                                    
+                                    
+                                    <h3><span class="lowercase">"pl_trandurd"</span> is the transit duration in hours.  <span class="lowercase">"pl_rade"</span> is the planet radius in earth units.  <span class="lowercase">"st_mass"</span> is the stellar mass (C<span class="lowercase">lick to enlarge).</span></h3>
+                                        <a href="Transit_duration_hrs.html" class="image main"><img src="images2/pl_trandurd.png" alt="Graph of Transit Duration" /></a>
+                                        <p>The transit duration in hours is longer for planets that have NOT been confirmed. The stellar masses are not too varied and for the most part planet radii are similar too but there is a slight bit of green showing up meaning there's some bigger planets being represented.</p>
+                                        <hr/>
+                                        
+                                    
+                                    
+                                    <h3><span class="lowercase">"pl_imppar"</span> is the distance of planet to star.  <span class="lowercase">"pl_ratror"</span> is the ratio of planet to star radius.</h3>
+                                    <img src="images2/pl_imppar_ratror.png" class="image main" alt="imagedescription">
+                                        <p>This regression plot shows Confirmed planets and Candidate planets are grouped differently.  The regression lines are slightly different.</p>
+                                    <hr/>
+                                    
+                                    
+                                    
+                                    
+                                    <h3><span class="lowercase">"pl_ratdor"</span> is a ratio of the planet's distance.  <span class="lowercase">"pl_eqt"</span> is the planet's temperature.</h3>
+                                    <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~drewrust1/3.embed" height="525" width="100%"></iframe>
+                                        <p>As the distance increases (X axis) the temperature decreases (y axis) so distance and temperature are negatively correlated.</p>
+                                        <hr/>
+                                        
+                                
+                                
+                                <h3><span class="lowercase">"ra"</span> is the planet's longitude east and west coordinates.<span class="lowercase">"dec"</span> is the planet's latitude north and west coordinates.<span class="lowercase">"st_mass"</span> is the stellar mass (C<span class="lowercase">lick to enlarge).</span></h3>
+                                <a href="rightAscDec.html" class="image main"><img src="images2/rightAscDec.png" alt="Graph of Transit Duration" /></a>
+                                <p>Right ascension and declination are the equivalent of longitude and latitude for an objects celestial coordinates.  Here it's easy to see all the KOI's or Kepler Objects of Interest discovered as they're all grouped together.  Kepler in it's original operational condition no longer works the same but is now functioning as K2.  The new mission is now TESS or Transiting Exoplanet Survey Satellite.</p>
+                                
+                                
+                                
+                                
+                                <hr/>
+                                <h2>Categorical Columns</h2>
+                                <hr/>
+                                
+                                
+                                <h3><span class="lowercase">"discoverymethod"</span> is obviously how the planet was discovered.</h3>
+                                <img src="images2/discoverymethod.png" class="image main" alt="imagedescription">
+                                <p>Radial Velocity is when the star moves slightly responding to the gravitational pull of its smaller companion.  Transit is clearly the most common and is how Kepler found it's objects of interest including confirmed and candidate planets.</p>
+                                
+                                
+                                <h3><span class="lowercase">"disc_locale"</span> is of course where the planet was discovered.</h3>
+                                <img src="images2/disc_locale.png" class="image main" alt="imagedescription">
+                                    <p>Planets discovered on the ground are more likely to be confirmed planets.  The clear majority of the rest of planets were discovered in space by Kepler that can reach farther and see better images.</p>
+                                
+                                
+                                <h3><span class="lowercase">"st_metratio"</span> is the star's metal ratio.</h3>
+                                <img src="images2/st_metratio.png" class="image main" alt="imagedescription">
+                                    <p>Ratio for the Metallicity Value [Fe/H] denotes iron abundance, [M/H] refers to a general metal content.  So there are more Candidate unconfirmed planets in the iron column and more Confirmed planets in the general metal column.</p>
+                                    
+                                
+                                
+                                <hr/>
+                                <h2>Predicative Model Making</h2>
+                                <hr/>
+                                
+                                <h3>Baseline &amp; Logistic Regression (LR) Model</h3>
+                                <h4>Using the numeric columns: <span class="lowercase">"pl_eqt", "pl_orbper", "pl_ratdor", "pl_trandep", "pl_radj", "pl_ratror", "pl_imppar", "st_mass", "pl_trandurd", "pl_rade", "ra", "dec"</span> and the categorical columns <span class="lowercase">"st_metratio", "discoverymethod", "disc_locale"</span></h4>
+                                <img src="images2/baseline.png" class="image main" alt="imagedescription">
+        
+                                    
+                                 <h3>Confirm Logistic Regression Score</h3>
+                                <img src="images2/LRcorrect.png" class="image main" alt="imagedescription">
+                                    
+                                    
+                                    <h3>LR feature importances (permuted)</h3>
+                                    <img src="images2/logisticfeatures.png" class="image main" alt="imagedescription">
+                                        <p>Obviously there are lots of features here that aren't really helping the model so let's run it again using the best features.</p>
+                                    
+                                    
+                                    <h3>LR with top features</h3>
+                                    <img src="images2/LRrerun.png" class="image main" alt="imagedescription">
+                                        <p>Out of all the 30 features we really only needed 11 to create a predictive model.</p>
+                                    
+                                <hr/>
+                                
+
+                            <h3>Decision Tree Model</h3>
+
+
+                            <h4>U<span class="lowercase">sing</span> only <span class="lowercase">these columns:</span><span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
+                            <p>Here are some visuals understanding how a Decision Tree made predictions for this new model.  The first is a decision tree model with max_depth set at 4.</p>
+
+                            <img src="images2/dtree.png" class="image main" alt="imagedescription">
+                                
+                                <p>Another Decision Tree Visual using this <a href="https://github.com/parrt/dtreeviz">Library (link)</a> with the max_depth set at 3.</p>
+
+                            <img src="images2/dectreeviz.jpg" class="image main" alt="imagedescription">
+    
+                                <hr/>
+    
+                            <h3>Random Forest Model</h3>
+                            
+                            <h4>Continuing with the same columns: <span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
+
+                            <p>The Random Forest Model feature importances.</p>
+
+
+                                <img src="images2/Rf_imp_feat.png" class="image main" alt="imagedescription">
+
+                                <p>Random Forest Model with adjusted parameters improves the score.  The default of 100 n_estimators was changed to 200, the default max_depth of None was changed to 15, and the default min_samples_split of 2 was changed to 5.  The default min_samles_leaf was the only one not changed and left at 1. </p>
+
+                                <img src="images2/Rf_adj.png" class="image main" alt="imagedescription">
+
+                                <hr/>
+                                
+                                
+                                <h3>Cross Validation Model and Summary</h3>
+                                
+                                <h4>Same columns: <span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
+                                
+                                <p>A summary of all the models ran with the same 4 features showing improvement.  Cross Validation has the best results as seen below.  It took about 5 minutes to train, validate, and test.</p>
+                                
+                                
+                                <img src="images2/summary.png" class="image main" alt="imagedescription">
+                                
+                                <p>The Confusion Matrix of the Cross Validation Model just shows the correct true &amp; false predictions match and the totals are correct.</p>
+                                
+                                <img src="images2/confusion_m.png" class="image main" alt="imagedescription">
+                                
+                                 <hr/>
+                                
+                                <h2>Conclusion</h2>
+                                <p>This was a big dataset so it was really helpful to reduce the number of columns to better understand them.  Beginning with the Logistic Regression Model more columns were used to initially train the model.  Starting with 12 numeric and 3 categorical columns.  The 3 categorical columns would later become 18 features after being seperately encoded.  For instance, the column "st_metratio" became 5 seperate features.  The column "discoverymethod" became 9 and "disc_locale" would become 4 to create 18. Those added to the 12 numeric features created a total of 30 features. The model was then trained and again with only 11 of the most important features.</p>
+                                
+                                <p>Using all the same features for the Decision Tree Model it was able to fit itself to almost 100%.  So using 3 numeric columns and 1 categorical column it gave the Decision Tree and other Models more of a challenge.  After running a Random Forest and changing the parameters the score improved.  The best predictive model score with those 4 columns came from a Cross Validation Model with 5 folds of 20 iterations.  It took 5 minutes to train and make it's predictions on the test set.</p>
+                                
+                                <p>For this project I learned a lot about exoplanets and data modeling in the process.  I hope to continue learning and thank you for following along.</p>
+                                
+                                <hr/>
+                                </div>
+                                </div>
+            
+
+                 
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Drew Rust</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

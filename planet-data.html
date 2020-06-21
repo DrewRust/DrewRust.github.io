@@ -63,15 +63,15 @@
 								</header>
 
 								<!-- Text stuff -->
-                                <h3>Exoplanets are planets outside our solar system. Above is an artist's rendering of NASA's Kepler Space Telescope searching for such exoplanets.<a href="https://solarsystem.nasa.gov/solar-system/beyond/overview/">NASA documents 4,164 and counting "Confirmed" exoplanets</a> discovered so far and thousands of other "Candidate" planets.  Below is the process I used to create a data model to predict the confirmed planets.</h3>
+                                <h3>Exoplanets are planets outside our solar system. Above is an artist's rendering of NASA's Kepler Space Telescope in search of them.<a href="https://solarsystem.nasa.gov/solar-system/beyond/overview/">NASA documents 4,164 and counting "Confirmed" exoplanets</a> discovered so far and thousands of other "Candidate" planets.  Below is the process I used to create a data model to predict the confirmed planets.</h3>
                                 <hr/>
                                 
                                 
                                 <p>
-                                As of the time of writing this there are 4,164 "confirmed" exoplanets and the other "candidate" planets require more study to be confirmed.  The discovery method most often successful is the transit method as the exoplanet passes in between it's star and the telescope.  The dimming of the light from that star can then be measured and the orbit studied.</p>
+                                As of writing this there are 4,164 "confirmed" exoplanets and the other "candidate" planets require more study to be confirmed.  The discovery method most often successful is the transit method as the exoplanet passes in between it's star and the telescope.  The dimming of the light from that star can then be measured and the orbit studied.</p>
                                 
                                 <p>
-                                The dataset that I chose to look at is the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release (link) </a> which is essentially all the planetary datasets combined.  The data is 26,336 rows and 118 columns.  I looked at all the columns and some had too many missing values, others were not helpful to predicting if it was a confirmed planet, or the column variable was hard to understand.  I'm no astronomer but I felt like I could get a model to predict whether a planet was confirmed or just a candidate.</p>
+                                I chose the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release dataset (link) </a> which is essentially all the planetary data combined.  The data is 26,336 rows and 118 columns.  I looked at the columns and some had too many missing values, others were not helpful to predict if it was a confirmed planet, or the column variable was hard to understand.</p>
                                 <hr/>
                                 
                                 
@@ -86,7 +86,7 @@
                                 <hr/>
                                 
                                 
-                                <h3>The first thing was to explore the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html">data columns (link).</a>  Initially I had 118 different column variables so I narrowed it down to 25.  Out of these 22 were numeric data types and 3 were categoricals.  I'm first going to describe the numeric columns of planetary data.</h3>
+                                <h3>The first thing was to explore the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html">data columns.</a>  Initially I had 118 different data columns so I narrowed it down to 25.  Out of these 22 were numeric data types and 3 were categorical types.  I'm first going to describe the numeric columns of planetary data.</h3>
                                 <hr/>
                                 
                                 
@@ -101,6 +101,8 @@
                                     <h3>The heatmap shows any correlations between the <a href="https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html">columns.</a></h3>
                             
                                 <ul>
+                                    <li>Each column shows up once on the left margin and again at the bottom.</li>
+                                    <li>The diagonal line is created because of course the column is highly correlated with itself.</li>
                                     <li>"dec" and "ra" are the cooridinates of the planets.</li>
                                     <li>The columns beginning with "sy" refer to the planetary systems.  Notice how they're grouped together and create a pattern.</li>
                                     <li>The columns begining with "pl" refer to the exoplanets.  "pl_radj" and "pl_rade" refer to the radii or radiuses of the planets measured in units of Jupiters and Earths.  There are definitely some correlations among these.</li>
@@ -156,7 +158,7 @@
                                         
                                 
                                 
-                                <h3><span class="lowercase">"ra"</span> is the planet's longitude east and west coordinates.<span class="lowercase">"dec"</span> is the planet's latitude north and west coordinates.<span class="lowercase">"st_mass"</span> is the stellar mass (C<span class="lowercase">lick to enlarge).</span></h3>
+                                <h3><span class="lowercase">"ra"</span> is the planet's longitude east and west coordinates.<span class="lowercase">"dec"</span> is the planet's latitude north and south coordinates.<span class="lowercase">"st_mass"</span> is the stellar mass (C<span class="lowercase">lick to enlarge).</span></h3>
                                 <a href="rightAscDec.html" class="image main"><img src="images2/rightAscDec.png" alt="Graph of Transit Duration" /></a>
                                 <p>Right ascension and declination are the equivalent of longitude and latitude for an objects celestial coordinates.  Here it's easy to see all the KOI's or Kepler Objects of Interest discovered as they're all grouped together.  Kepler in it's original operational condition no longer works the same but is now functioning as K2.  The new mission is now TESS or Transiting Exoplanet Survey Satellite.</p>
                                 

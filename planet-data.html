@@ -73,7 +73,7 @@
                                 As of writing this there are 4,164 "confirmed" exoplanets and the other "candidate" planets require more study to be confirmed.  The discovery method most often successful is the transit method as the exoplanet passes in between it's star and the telescope.  The dimming of the light from that star can then be measured and the orbit studied.</p>
                                 
                                 <p>
-                                I chose the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release dataset (link) </a> which is essentially all the planetary data combined.  The data is 26,336 rows and 118 columns.  I looked at the columns and some had too many missing values, others were not helpful to predict if it was a confirmed planet, or the column variable was hard to understand.</p>
+                                I chose the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release dataset (link) </a> which is essentially all the planetary data combined.  The data consists of 26,336 rows and 118 columns.  Out of 118 columns some just had too many missing values, others were not helpful to predict if it was a confirmed planet, or the column variable was hard to understand.  After all, understanding the data can be important to not leak training data to testing data.</p>
                                 <hr/>
                                 
                                 
@@ -213,9 +213,9 @@
                                  <h3>Confirm Logistic Regression Score</h3>
                                  
                                  <ul>
-                                     <li>There were a total of 4,938 predictions made and 4,453 were right so 485 were wrong giving the model score a 90.2%</li>
+                                     <li>There were a total of 4,938 predictions made.  4,453 were right and 485 were wrong giving the model score a 90.2%</li>
                                      <li>The model's score was confirmed by dividing the number of correct predictions by the total number of predictions.</li>
-                                     <li>The first 5 LR Model predictions were printed out along with the planet name and status.
+                                     <li>The first 5 LR Model predictions were printed out along with the planet names and status.
                                      </ul>
                                  
                                  
@@ -234,8 +234,16 @@
                                    
                                     
                                     <h3>LR with top features</h3>
+                                    
+                                    <ul>
+                                        <li>With the 11 most important features above the model test accuracy was still great at 90% (rounded up).</li>
+                                        <li>Out of all the 30 features we really only needed 11 to create a predictive model.</li>
+                                        <li>In a Kaggle Competition we would keep all features with an importance above 0.0% to get every last improvement in the model score.  With this model the cut off was 0.005 and we only lost 0.2% in our model score down from 90.2% above. </li>
+                                        </ul>
+                                    
+                                    
                                     <img src="images2/LRrerun.png" class="image main" alt="imagedescription">
-                                        <p>Out of all the 30 features we really only needed 11 to create a predictive model.</p>
+                                       
                                     
                                 <hr/>
                                 
@@ -244,12 +252,22 @@
 
 
                             <h4>U<span class="lowercase">sing</span> only <span class="lowercase">these columns:</span><span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
-                            <p>Here are some visuals understanding how a Decision Tree made predictions for this new model.  The first is a decision tree model with max_depth set at 4.</p>
+                            
+                            <ul>
+                                <li>The Decision Tree Model and the following models use only 4 columns.</li>
+                                <li>With Decision Trees to avoid overfitting the training data <strong>max_depth</strong> is a parameter that should be defined.  Here it was set to 4.</li>
+                                <li>This helps the model keep generalized for the unpredictable test set and new data.</li>
+                                <li>Here is a visual understanding how the DT set decision points to make predictions.  The model score can be seen at the very bottom compared with the other model scores.
+                                </ul>
+                            
 
                             <img src="images2/dtree.png" class="image main" alt="imagedescription">
                                
-                             
-                                <p>Another Decision Tree Visual using this <a href="https://github.com/parrt/dtreeviz">Library (link)</a> with the max_depth set at 3.</p>
+                             <ul>
+                                <li>Another Decision Tree Visual using this <a href="https://github.com/parrt/dtreeviz">Library (link)</a> with the <strong>max_depth</strong> set to 3.</li>
+                                <li>With a <strong>max_depth</strong> of 3 it didn't overfit the training data but it did lose a very small amount of test accuracy (0.5%) from the max_depth default of None.
+                                    <li>Down from 79.1% to 78.6%.  79.1% is used below in the final comparison.</li>
+                                </ul>
 
                             <img src="images2/dectreeviz.jpg" class="image main" alt="imagedescription">
     
@@ -259,12 +277,19 @@
                             
                             <h4>Continuing with the same columns: <span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
 
-                            <p>The Random Forest Model feature importances.</p>
 
+                            <p>The Random Forest Model feature importances.</p>
+                           
 
                                 <img src="images2/Rf_imp_feat.png" class="image main" alt="imagedescription">
+                                    <p>Random Forest Model with adjusted parameters improves the score.</p>
 
-                                <p>Random Forest Model with adjusted parameters improves the score.  The default of 100 n_estimators was changed to 200, the default max_depth of None was changed to 15, and the default min_samples_split of 2 was changed to 5.  The default min_samles_leaf was the only one not changed and left at 1. </p>
+                                <ul>
+                                <li>The default of 100 <strong>n_estimators</strong> was changed to 200.</li>
+                                <li>The default <strong>max_depth</strong> of None was changed to 15.</li>
+                                <li>The default <strong>min_samples_split</strong> of 2 was changed to 5.</li>
+                                <li>The default <strong>min_samles_leaf</strong> was the only parameter not changed and left at 1.</li>
+                                </ul>
 
                                 <img src="images2/Rf_adj.png" class="image main" alt="imagedescription">
 
@@ -301,7 +326,7 @@
                  
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Drew Rust</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Andrew Rust</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>

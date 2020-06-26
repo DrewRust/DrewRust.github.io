@@ -70,24 +70,31 @@
                                 
                                 
                                 <p>
-                                As of writing this there are 4,164 "confirmed" exoplanets and the other "candidate" planets require more study to be confirmed.  The discovery method most often successful is the transit method as the exoplanet passes in between it's star and the telescope.  The dimming of the light from that star can then be measured and the orbit studied.</p>
+                                As of writing this there are 4,164 "confirmed" exoplanets.  The other "candidate" planets require more study to be confirmed.  The discovery method most often successful is the transit method as the exoplanet passes in between it's star and the telescope.  The dimming of the light from that star can then be measured and the orbit studied.</p>
                                 
                                 <p>
-                                I chose the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release dataset (link) </a> which is essentially all the planetary data combined.  The data consists of 26,336 rows and 118 columns.  Out of 118 columns some just had too many missing values, others were not helpful to predict if it was a confirmed planet, or the column variable was hard to understand.  After all, understanding the data can be important to not leak training data to testing data.</p>
+                                I chose the <a href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"> Planetary Systems Alpha release dataset</a> which is essentially all the planetary data combined.  The data consists of 26,336 rows and 118 columns.  Out of 118 columns some just had too many missing values, others were not helpful to predict if it's a confirmed planet, or the column variable was hard to understand.  After all, understanding the data can be important to not leak training data to testing data.</p>
                                 <hr/>
                                 
                                 
                                 <h2>Links to follow along:</h2>
                                         <ol>
-                                    <li><a href="https://exoplanets.nasa.gov/exoplanet-catalog/">Exoplanet Catelog.</a></li>
+                                            
+                                    <li><a href="https://colab.research.google.com/drive/1_2SC3zSGWn0LPwKYCXeLUTqFncqAQPo8?usp=sharing">My Visual Data Anaylsis Code Here.</a></li>
+                                            
+                                    <li><a href="https://colab.research.google.com/drive/1NZ1I2sXOvmqm2zpETU3psVQWup-ah76S?usp=sharing">My Predictive Model Code Here.</a></li>
                                     
-                                    <li><a href="https://exoplanetarchive.ipac.caltech.edu/index.html">Planetary Systems Data being used.</a></li>
+                                    <li><a href="https://github.com/DrewRust/DS-Unit-2-Build_Week">Same Code on Github Here.</a></li>
+                                            
+                                    <li><a href="https://exoplanetarchive.ipac.caltech.edu/docs/ICEexohelp.html">Planetary Systems Data Used Here.</a></li>
                                     
-                                     <li><a href="https://colab.research.google.com/drive/1_2SC3zSGWn0LPwKYCXeLUTqFncqAQPo8?usp=sharing">Colab Notebook for visual data anaylsis.</a></li>
+                                    <li><a href="https://exoplanetarchive.ipac.caltech.edu/docs/exoplanet_criteria.html">Criteria for Exoplanet Status.</a></li>
+
                                     
-                                    <li><a href="https://github.com/DrewRust/DS-Unit-2-Build_Week/blob/master/Exoplanets_Finished.ipynb">Github Notebook for my predictive models.</a></li>
-                                   
-                                    <li><a href="https://www.kaggle.com/ezietsman/kepler-dataset-exploratory-analysis">Kepler Data explored on Kaggle by Ewald Zietsman.</a></li>
+                                    <li><a href="https://exoplanets.nasa.gov/exoplanet-catalog/">Exoplanet Exploration and Interactive NASA Site Here.</a></li>
+                                    
+                                    
+<!--                                 <li><a href="https://www.kaggle.com/ezietsman/kepler-dataset-exploratory-analysis">Kepler Data explored on Kaggle by Ewald Zietsman.</a></li>-->
                                         </ol>
                                 <hr/>
                                 
@@ -127,7 +134,7 @@
                                 
                                 
                                 
-                                <h3><span class="lowercase">"pl_orbper"</span> is orbit time in days and <span class="lowercase">"pl_ratdor"</span> is a ratio of distance.</h3>
+                                <h3><span class="lowercase">"pl_orbper"</span> is orbit time in days and <span class="lowercase">"pl_ratdor"</span> is a ratio of distance from the planet to it's star.</h3>
                                 <img src="images2/pl_ratdor_orbper.png" class="image main" alt="imagedescription">
                                     <p>This scatterplot shows Confirmed planets in teal are more closely grouped with shorter orbit times.  Overall, the farther away a planet is the longer time it takes to orbit the star.</p>
                                 <hr/>
@@ -157,19 +164,22 @@
                                     
                                     
                                     
-                                    <h3><span class="lowercase">"pl_ratdor"</span> is a ratio of the planet's distance.  <span class="lowercase">"pl_eqt"</span> is the planet's temperature.</h3>
+                                    <h3><span class="lowercase">"pl_ratdor"</span> is a ratio of distance from the planet to it's star.  <span class="lowercase">"pl_eqt"</span> is the planet's temperature.</h3>
                                     <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plotly.com/~drewrust1/3.embed" height="525" width="100%"></iframe>
-                                        <p>As the distance increases (X axis) the planet temperature decreases (y axis).  So distance and temperature are correlated by if the planet is cooler it must be farther away from it's star.</p>
+                                        <p>As the distance increases (X axis) the planet temperature decreases (y axis).  So distance and temperature are correlated by if the planet is cooler it must be farther away from it's star. Overall, there's less distance from planet to it's star for confirmed planets.</p>
                                         <hr/>
                                         
                                 
                                 
                                 <h3><span class="lowercase">"ra"</span> is the planet's longitude east and west coordinates.<span class="lowercase">"dec"</span> is the planet's latitude north and south coordinates.<span class="lowercase">"st_mass"</span> is the stellar mass (C<span class="lowercase">lick to enlarge).</span></h3>
                                 <a href="rightAscDec.html" class="image main"><img src="images2/rightAscDec.png" alt="Graph of Transit Duration" /></a>
-                                <p>Right ascension and declination are the equivalent of longitude and latitude for an objects celestial coordinates.  Here it's easy to see all the KOI's or Kepler Objects of Interest discovered as they're all grouped together.  Kepler in it's original operational condition no longer works the same but is now functioning as K2.  The new mission is now TESS or Transiting Exoplanet Survey Satellite.</p>
                                 
+                                <p>Right ascension and declination are the equivalent of longitude and latitude for an object's celestial coordinates.  Here it's easy to see all the confirmed and candidate planets.  Kepler's original mission is focused on the top right darker square shape.  Kepler in it's original operational condition no longer works the same but is now functioning as K2.  K2's discoveries go across in a swooped line.</p>
                                 
-                                
+                                <ul>
+                                    <li><a href="https://exoplanets.nasa.gov/resources/1019/kepler-field-of-view/">Original Kepler Mission Telescope Field of View Link Here.</a></li>
+                                    <li><a href="https://keplerscience.arc.nasa.gov/images/k2_graphic_sm.jpeg">K2 Quadrants Pictured in Link Here.</a></li>
+                                </ul>
                                 
                                 <hr/>
                                 <h2>Categorical Columns</h2>
@@ -178,17 +188,17 @@
                                 
                                 <h3><span class="lowercase">"discoverymethod"</span> is obviously how the planet was discovered.</h3>
                                 <img src="images2/discoverymethod.png" class="image main" alt="imagedescription">
-                                <p>Radial Velocity is when the star moves slightly responding to the gravitational pull of its smaller companion.  Transit is clearly the most common and is how Kepler found it's objects of interest including confirmed and candidate planets.</p>
+                                <p>Transit is clearly the most common and is how Kepler made it's discoveries.  Radial Velocity is when the star wobbles slightly because of the gravitational pull of its orbiting exoplanet.  Radial Velocity was used to discover all confirmed planets which is a good predictor.</p>
                                 
                                 
                                 <h3><span class="lowercase">"disc_locale"</span> is of course where the planet was discovered.</h3>
                                 <img src="images2/disc_locale.png" class="image main" alt="imagedescription">
-                                    <p>Planets discovered on the ground are more likely to be confirmed planets.  The clear majority of the rest of planets were discovered in space by Kepler that can reach farther and see better images.</p>
+                                    <p>Planets discovered on the ground are more likely to be confirmed planets.  The clear majority of the rest of planets were discovered in space by Kepler like telescopes that can reach farther and see better images.</p>
                                 
                                 
                                 <h3><span class="lowercase">"st_metratio"</span> is the star's metal ratio.</h3>
                                 <img src="images2/st_metratio.png" class="image main" alt="imagedescription">
-                                    <p>Ratio for the Metallicity Value [Fe/H] denotes iron abundance, [M/H] refers to a general metal content.  So there are more Candidate unconfirmed planets in the iron column and more Confirmed planets in the general metal column.</p>
+                                    <p>Ratio for the Metallicity Value [Fe/H] denotes an iron abundance, [M/H] refers to a general metal content.  So there are more candidate unconfirmed planets in the iron column and more confirmed planets in the general metal column.  These two features will likely be important predictors.</p>
                                 <hr/>
                                 
                                 
@@ -200,8 +210,8 @@
         
         
                                         <ul>
-                                            <li>The best guess would be True because True's have a 53.7465% majority.</li>
-                                            <li>The first predictive model using Logistic Regression improved the best guess prediction to a 90.1782% certainty.</li>
+                                            <li>The best guess would be True because True's have a 53.7% majority.</li>
+                                            <li>The first predictive model using Logistic Regression improved the best guess prediction to a 90.2% certainty.</li>
                                         </ul>
                                
         
@@ -214,8 +224,9 @@
                                  
                                  <ul>
                                      <li>There were a total of 4,938 predictions made.  4,453 were right and 485 were wrong giving the model score a 90.2%</li>
-                                     <li>The model's score was confirmed by dividing the number of correct predictions by the total number of predictions.</li>
-                                     <li>The first 5 LR Model predictions were printed out along with the planet names and status.
+                                     <li>The model's accuracy score was verified by dividing the number of correct predictions by the total number of predictions and everything matched.</li>
+                                     <li>The first 5 LR Model predictions which all happened to be correct can be seen below along with the planet names.
+                                    <li>So only a little less than 10% of the predictions were wrong.</li>
                                      </ul>
                                  
                                  
@@ -225,6 +236,7 @@
                                     <h3 id = "pl_trandurd">LR feature importances (permuted)</h3>
                                     
                                         <ul>
+                                            <li>Permuted means the feature's importance was double checked by shuffling it, then finding it's impact on model accuracy.
                                             <li>Obviously the features with the most green were the most important to the model's success.
                                             <li>There are a lot of features here that aren't helping the model so let's run it again using the best features.</li>
                                             </ul>
@@ -238,7 +250,7 @@
                                     <ul>
                                         <li>With the 11 most important features above the model test accuracy was still great at 90% (rounded up).</li>
                                         <li>Out of all the 30 features we really only needed 11 to create a predictive model.</li>
-                                        <li>In a Kaggle Competition we would keep all features with an importance above 0.0% to get every last improvement in the model score.  With this model the cut off was 0.005 and we only lost 0.2% in our model score down from 90.2% above. </li>
+                                        <li>In a Kaggle Competition we would keep all features with an importance above 0.0% to get every small bit of improvement in the model score.  With this model the feature importance cut off was 0.005.  The prediction score only lost 0.2% accuracy, down from 90.2% to 90%. </li>
                                         </ul>
                                     
                                     
@@ -254,22 +266,27 @@
                             <h4>U<span class="lowercase">sing</span> only <span class="lowercase">these columns:</span><span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
                             
                             <ul>
-                                <li>The Decision Tree Model and the following models use only 4 columns.</li>
-                                <li>With Decision Trees to avoid overfitting the training data <strong>max_depth</strong> is a parameter that should be defined.  Here it was set to 4.</li>
+                                <li>The <strong>Decision Tree Model</strong> and the following models use <strong>only 4 columns.</strong></li>
+                                <li>With Decision Trees to avoid overfitting the training data <strong>max_depth</strong> is a parameter that should be defined.  For the next visual it was set to 4.</li>
                                 <li>This helps the model keep generalized for the unpredictable test set and new data.</li>
-                                <li>Here is a visual understanding how the DT set decision points to make predictions.  The model score can be seen at the very bottom compared with the other model scores.
+                                <li>Here is a visual understanding how the DT set decision points to make predictions.  The True's can be visualized in the color yellow and the False's in the color blue-green.</li>
                                 </ul>
                             
 
                             <img src="images2/dtree.png" class="image main" alt="imagedescription">
                                
                              <ul>
-                                <li>Another Decision Tree Visual using this <a href="https://github.com/parrt/dtreeviz">Library (link)</a> with the <strong>max_depth</strong> set to 3.</li>
-                                <li>With a <strong>max_depth</strong> of 3 it didn't overfit the training data but it did lose a very small amount of test accuracy (0.5%) from the max_depth default of None.
-                                    <li>Down from 79.1% to 78.6%.  79.1% is used below in the final comparison.</li>
+                                <li>Another Decision Tree Visual using the <strong><a href="https://github.com/parrt/dtreeviz">Dtreeviz Library (link)</a></strong> with the <strong>max_depth</strong> set to 3.  It uses a pie chart visual to make the model easier to interpret.</li>
+                                <li>Here the root node is "pl_rade" meaning the decision process starts here.  If it is <i>less than</i> it goes to the next decision which is "pl_orbper" (the majority here were <strong>candidate 0</strong>).  If it is <i>greater than or equal to</i> it goes to the next decision which is "pl_rade" (the majority of these were <strong>confirmed 1</strong>).  This process continues until the decision classifies that planet as confirmed or not confirmed.</li>
                                 </ul>
 
                             <img src="images2/dectreeviz.jpg" class="image main" alt="imagedescription">
+    
+                                <ul>
+                                    <li>The <strong>Decision Tree Model</strong> score was first ran with a <strong>max_depth</strong> kept at it's default of None and had an accuracy of 79.1% on the test set.</li>
+                                    <li>It was then ran again with a <strong>max_depth</strong> of 3 and it didn't overfit the training data but it did lose a very small amount of test accuracy.  Down from 79.1% to 78.6%.</li>
+                                    <li><strong>79.1%</strong> is used below in the final summary &amp; comparison.</li>
+                                </ul>
     
                                 <hr/>
     
@@ -277,18 +294,20 @@
                             
                             <h4>Continuing with the same columns: <span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
 
-
-                            <p>The Random Forest Model feature importances.</p>
-                           
+                            <ul>
+                            <li>The Random Forest Model is just a bunch of Decision Trees ran using the feature columns.  Then the most popular prediction (confirmed or not) is used in the final.  Kind of like getting multiple opinions or estimates on a car before fixing it instead of just going with the first estimate.</li>
+                            <li><strong>The Random Forest Model feature importances.</strong></li>
+                           </ul>
 
                                 <img src="images2/Rf_imp_feat.png" class="image main" alt="imagedescription">
-                                    <p>Random Forest Model with adjusted parameters improves the score.</p>
+                                    <p><strong>Random Forest Model with adjusted parameters improves the test score to 81.2%.</strong></p>
 
                                 <ul>
                                 <li>The default of 100 <strong>n_estimators</strong> was changed to 200.</li>
-                                <li>The default <strong>max_depth</strong> of None was changed to 15.</li>
-                                <li>The default <strong>min_samples_split</strong> of 2 was changed to 5.</li>
-                                <li>The default <strong>min_samles_leaf</strong> was the only parameter not changed and left at 1.</li>
+                                <li>The default of None <strong>max_depth</strong> was changed to 15.</li>
+                                <li>The default of 2 <strong>min_samples_split</strong> was changed to 5.</li>
+                                <li>The default of 1 <strong>min_samles_leaf</strong> was the only parameter not changed and left at 1.</li>
+                                <li>New test score of 81.2%.</li>
                                 </ul>
 
                                 <img src="images2/Rf_adj.png" class="image main" alt="imagedescription">
@@ -300,23 +319,33 @@
                                 
                                 <h4>Same columns: <span class="lowercase">"pl_rade", "pl_orbper", "st_mass", "discoverymethod"</span></h4>
                                 
-                                <p>A summary of all the models ran with the same 4 features showing improvement.  Cross Validation has the best results as seen below.  It took about 5 minutes to train, validate, and test.</p>
-                                
+        
+                                <ul>
+                                    <li><strong>Cross Validation</strong> is the final model and does not use a validation set. It runs with the train and test sets only.  This way the training data sample is larger and can create a more accurate model.</li>
+                                    <li>The CV Model uses the RandomizedSearchCV method meaning the parameters were chosen randomly from a created parameter list.</strong></li>
+                                    <li><strong>n_iter</strong> was set at 20 which is how many random parameters were sampled for each run.</li>
+                                    <li><strong>cv</strong> was set at 5 meaning 5 models were ran and the model with the best score &amp; parameters was kept to run on the test set.</li>
+                                    <li>Cross Validation had the best test score of <strong>82.4%</strong> as seen below.</li>
+                                    <li>Out of all the other models it took the longest to run about 5 minutes.</li>
+                                     <li>Beginning with The Decision Tree, next The Random Forest, RF Adjusted, and finally The CV each model saw an improvement in test accuracy.</li>
+                                </ul>
                                 
                                 <img src="images2/summary.png" class="image main" alt="imagedescription">
                                 
-                                <p>The Confusion Matrix of the Cross Validation Model just shows the correct true &amp; false predictions match and the totals are correct.</p>
+                                <ul>
+                                <li>The <strong>Confusion Matrix of the Cross Validation Model</strong> just shows the correct True &amp; False predictions match and the totals are correct.</li>
+                                <li> The CV Model's False predictions were correct 2,849 times.  It's True predictions were correct 2,575 times.  It was wrong a total of 1,160 times (found by adding 949 plus 211).</li>
+                                <li>We can verify our accuracy score by dividing the correct predictions by the total predictions.  The result is <strong>82.4%</strong> which matches above.</li>
+                                </ul>
                                 
                                 <img src="images2/confusion_m.png" class="image main" alt="imagedescription">
                                 
                                  <hr/>
                                 
                                 <h2>Conclusion</h2>
-                                <p>This was a big dataset so it was really helpful to reduce the number of columns to better understand them.  Beginning with the Logistic Regression Model more columns were used to initially train the model.  Starting with 12 numeric and 3 categorical columns.  The 3 categorical columns would later become 18 features after being seperately encoded.  For instance, the column "st_metratio" became 5 seperate features.  The column "discoverymethod" became 9 and "disc_locale" would become 4 to create 18. Those added to the 12 numeric features created a total of 30 features. The model was then trained and again with only 11 of the most important features.</p>
+                                <p>This was a big dataset so it was really helpful to reduce the number of columns to better understand them.  Beginning with the Logistic Regression Model more columns were used to initially train the model.  Starting with 12 numeric and 3 categorical columns.  The 3 categorical columns would later become 18 features after being seperately encoded.  For instance, the column "st_metratio" became 5 seperate features.  The column "discoverymethod" became 9 and "disc_locale" would become 4 to create 18. Those added to the 12 numeric features created a total of 30 features. The model was trained and then again with only 11 of the most important features.</p>
                                 
-                                <p>Using all the same features for the Decision Tree Model it was able to fit itself to almost 100%.  So using 3 numeric columns and 1 categorical column it gave the Decision Tree and other Models more of a challenge.  After running a Random Forest and changing the parameters the score improved.  The best predictive model score with those 4 columns came from a Cross Validation Model with 5 folds of 20 iterations.  It took 5 minutes to train and make it's predictions on the test set.</p>
-                                
-                                <p>For this project I learned a lot about exoplanets and data modeling in the process.  I hope to continue learning and thank you for following along.</p>
+                                <p>Using all the same features for the Decision Tree Model it was able to fit itself to a 99.3% accuracy.  So using 3 numeric columns and 1 categorical column it gave the Decision Tree and other Models more of a challenge.  After running a Random Forest and changing the parameters the score improved.  The best predictive model score with those 4 columns came from a Cross Validation Model.  For this project I learned a lot about predictive data modeling through the interesting topic of exoplanets.  Thank you for following along.</p>
                                 
                                 <hr/>
                                 </div>

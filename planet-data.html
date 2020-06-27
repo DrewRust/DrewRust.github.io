@@ -321,10 +321,11 @@
                                 
         
                                 <ul>
-                                    <li><strong>Cross Validation</strong> is the final model and does not use a validation set. It runs with the train and test sets only.  This way the training data sample is larger and can create a more accurate model.</li>
-                                    <li>The CV Model uses the RandomizedSearchCV method meaning the parameters were chosen randomly from a created parameter list.</strong></li>
-                                    <li><strong>n_iter</strong> was set at 20 which is how many random parameters were sampled for each run.</li>
-                                    <li><strong>cv</strong> was set at 5 meaning 5 models were ran and the model with the best score &amp; parameters was kept to run on the test set.</li>
+                                    <li><strong>Cross Validation</strong> is the final model.</li>
+                                    <li>Unlike the models above there isn't a seperate validation set.  Instead, the data is split into smaller <strong>k</strong> subsets and trained on <strong>k-1</strong> of those subsets.</li>
+                                    <li>The CV Model used the <strong>RandomizedSearchCV</strong> method meaning the parameters were chosen from my list at random.</strong></li>
+                                    <li><strong>n_iter</strong> was put at 20 which was the number of times a new set of random parameters were tried.</li>
+                                    <li><strong>cv</strong> was put at 5 meaning 5 train / test splits were done for each one of the 20 different sets of parameters.  Then out of those 20 <strong>n_iter</strong> of unique parameters the model with the best average score for it's 5 splits scored the test set.</li>
                                     <li>Cross Validation had the best test score of <strong>82.4%</strong> as seen below.</li>
                                     <li>Out of all the other models it took the longest to run about 5 minutes.</li>
                                      <li>Beginning with The Decision Tree, next The Random Forest, RF Adjusted, and finally The CV each model saw an improvement in test accuracy.</li>
@@ -345,7 +346,7 @@
                                 <h2>Conclusion</h2>
                                 <p>This was a big dataset so it was really helpful to reduce the number of columns to better understand them.  Beginning with the Logistic Regression Model more columns were used to initially train the model.  Starting with 12 numeric and 3 categorical columns.  The 3 categorical columns would later become 18 features after being seperately encoded.  For instance, the column "st_metratio" became 5 seperate features.  The column "discoverymethod" became 9 and "disc_locale" would become 4 to create 18. Those added to the 12 numeric features created a total of 30 features. The model was trained and then again with only 11 of the most important features.</p>
                                 
-                                <p>Using all the same features for the Decision Tree Model it was able to fit itself to a 99.3% accuracy.  So using 3 numeric columns and 1 categorical column it gave the Decision Tree and other Models more of a challenge.  After running a Random Forest and changing the parameters the score improved.  The best predictive model score with those 4 columns came from a Cross Validation Model.  For this project I learned a lot about predictive data modeling through the interesting topic of exoplanets.  Thank you for following along.</p>
+                                <p>Using all the same features for the Decision Tree Model it was able to fit itself to a 99.3% accuracy.  So using 3 numeric columns and 1 categorical column (12 features after encoding) it gave the Decision Tree and other Models more of a challenge.  After running a Random Forest and changing the parameters the score improved.  The best predictive model score with those 4 columns or 12 features came from a Cross Validation Model.  For this project I learned a lot about predictive data modeling through the interesting topic of exoplanets.  Thank you for following along.</p>
                                 
                                 <hr/>
                                 </div>

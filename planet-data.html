@@ -321,11 +321,10 @@
                                 
         
                                 <ul>
-                                    <li><strong>Cross Validation</strong> is the final model.</li>
-                                    <li>Unlike the models above there isn't a seperate validation set.  Instead, the data is split into smaller <strong>k</strong> subsets and trained on <strong>k-1</strong> of those subsets.</li>
-                                    <li>The CV Model used the <strong>RandomizedSearchCV</strong> method meaning the parameters were chosen from my list at random.</strong></li>
+                                    <li>In a <strong>Cross Validation Model</strong> small subsets of the data are validated across the training data.</li>
+                                    <li>The <strong>RandomizedSearchCV</strong> method chose random parameters from our specified list.</strong></li>
                                     <li><strong>n_iter</strong> was put at 20 which was the number of times a new set of random parameters were tried.</li>
-                                    <li><strong>cv</strong> was put at 5 meaning 5 train / test splits were done for each one of the 20 different sets of parameters.  Then out of those 20 <strong>n_iter</strong> of unique parameters the model with the best average score for it's 5 splits scored the test set.</li>
+                                    <li><strong>cv</strong> was put at 5 meaning 5 train / val splits were done for each one of the 20 different sets of parameters.  Finally, out of those 20 model settings the model with the best average prediction score accuracy on it's 5 splits was used for the test set.</li>
                                     <li>Cross Validation had the best test score of <strong>82.4%</strong> as seen below.</li>
                                     <li>Out of all the other models it took the longest to run about 5 minutes.</li>
                                      <li>Beginning with The Decision Tree, next The Random Forest, RF Adjusted, and finally The CV each model saw an improvement in test accuracy.</li>
